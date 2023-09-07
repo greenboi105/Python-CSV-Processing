@@ -20,8 +20,9 @@ import csv
 
 def read_budget():
 
-    budget_path = "./Python CSV Processing/PyBank/Resources/budget_data.csv"
+    budget_path = "../Python CSV Processing/PyBank/Resources/budget_data.csv"
 
+    # Variables to store the values we want
     num_months = 0
     total_profit = 0
     greatest_increase = float('-inf')
@@ -35,6 +36,8 @@ def read_budget():
 
         csv_reader = csv.reader(budget_csv, delimiter=",")
 
+        # For each row, increment the number of months and update the total profit
+        # Also, potentially update the greatest decrease and increase along with the associated date
         for row in csv_reader:
 
             num_months += 1
@@ -55,7 +58,7 @@ def read_budget():
     print(f'Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})')
     print(f'Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})')
 
-    with open('financial_summary.txt', 'w') as financial_text:
+    with open('../Python CSV Processing/PyBank/analysis/financial_summary.txt', 'w') as financial_text:
         financial_text.write("Financial Analysis\n")
         financial_text.write("----------------------------\n")
         financial_text.write(f'Total Months: {num_months}\n')
