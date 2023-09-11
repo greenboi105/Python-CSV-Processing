@@ -24,7 +24,7 @@ from collections import defaultdict
 def read_votes():
 
     # Obtain the path (relative to current local machine)
-    voter_path = "../Python CSV Processing/PyPoll/Resources/election_data.csv"
+    voter_path = "/Users/greenboi/ComputerScience/Python/Python CSV Processing/PyPoll/Resources/election_data.csv"
 
     # Variables for storing the number of votes cast and a hashmap to store the candidates along with the number of votes they have
     num_votes = 0
@@ -69,13 +69,14 @@ def read_votes():
         print("-------------------------")
 
     # Same as printing to the command line, but we want to write the results to a file
-    with open('../Python CSV Processing/PyPoll/analysis/voting_summary.txt', 'w') as voting_text:
+    with open('/Users/greenboi/ComputerScience/Python/Python CSV Processing/PyPoll/analysis/voting_summary.txt', 'w') as voting_text:
 
         voting_text.write("Election Results\n")
         voting_text.write("----------------------------\n")
         voting_text.write(f'Total Votes: {num_votes}\n')
         voting_text.write("----------------------------\n")
         for candidate_name in candidate_list:
+            candidate_percentage = candidate_votes[candidate_name] / num_votes * 100
             voting_text.write(f'{candidate_name}: {candidate_percentage}% ({candidate_votes[candidate_name]})\n')
         voting_text.write("----------------------------\n")
         voting_text.write(f'Winner: {voting_winner[0]}\n')
